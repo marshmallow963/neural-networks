@@ -2,14 +2,20 @@
 #define HODGKING_HUXLEY_H
 
 typedef struct {
+  // Conductancy (Sodium, Potassium, Leak)
   double gNa, gK, gL;
+  // Reversal potential (Sodium, Potassium, Leak)
   double eNa, eK, eL;
+  // Membrane capacitancy
   double cM;
 } HodgkingHuxleyParams;
 
 typedef struct {
+  // Ionic gates
   double mGate, hGate, nGate;
+  // Voltage, External and Synaptic currents
   double v, iExt, iSyn;
+  // ionic currents (Sodium, Potassium, Leak)
   double iNa, ik, iL;
 } HodgkingHuxleyState;
 
