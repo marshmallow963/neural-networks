@@ -4,8 +4,8 @@
 #include "neuron_config/neuron_structure.h"
 
 // Initialization functions
-void InitHodgkingHuxleyParams(HodgkingHuxleyParams *params);
-void InitHodgkingHuxleyState(HodgkingHuxleyState *state);
+void InitHodgkingHuxleyParams(HodgkingHuxleyNeuronParams *params);
+void InitHodgkingHuxleyState(HodgkingHuxleyNeuronState *state);
 void InitHodgkingHuxleyNeuron(HodgkingHuxleyNeuron *neuron);
 
 void HodgkingHuxleyequations(void *modelNeuron, const double *stateVetcor, double *derivative);
