@@ -4,62 +4,62 @@
 /* --- Neuron Structure for Hodgking-Huxley Neuron Model --- */
 
 typedef struct {
-	double eK;  // Equilibrium potential for potassium current
-	double gK;  // Conductancy for potassium current
-	double eNa; // Equilibrium potential for sodium current
-    double gNa; // Conductancy for sodium current
-	double ek;  // Equilibrium potential for leak current
-	double gL;  // Conductancy for leak current
-    double mC;  // Membrane capacitancy
+	double gNa; 	// Conductancy for sodium current
+	double eNa; 	// Equilibrium potential for sodium current
+	double gk;  	// Conductancy for potassium current
+	double eK;  	// Equilibrium potential for potassium current
+	double gL;  	// Conductancy for leak current
+	double eL;  	// Equiulibrium potential for leak current
+	double c;		// Membrane capacitancy
 } HodgkingHuxleyNeuronParams;
 
 typedef struct {
-	double mGate; // Sodium activation
-	double hGate; // Sodium inactivation
-	double nGate; // Potassium activation
-  	double iNa;	  // Sodium current
-	double iK;    // Potassium current
-	double iL;	  // Leak current
-	double iExt;  // External current
-	double iSyn;  // synaptic current
-	double v; 	  // Voltage 
+	double m;	 	// Sodium activation gate
+	double h; 		// Sodium inactivation gate
+	double n; 		// Potassium activation gate
+	double iNa; 	// Sodium current
+	double iK;		// Potassium current
+	double iL;		// Leak current
+	double iExt;	// External current
+	double iSyn;	// Synaptic current
+	double v;		// Membrane voltage
 } HodgkingHuxleyNeuronState;
 
 typedef struct {
-	HodgkingHuxleyParams *params;
-	HodgkingHuxleyState *state;
+	HodgkingHuxleyNeuronParams *params;
+	HodgkingHuxleyNeuronState  *state;
 } HodgkingHuxleyNeuron;
 
 /* --- Neuron Structure for Izhikevich Neuron Model --- */
 
 typedef enum {
-	// Neuron Excitatory
+	// Excitatory Neuron
 	IntrinsicallyBursting,
 	RegularSpiking,
 	FastSpiking,
-	// Neuron Inhibitory
+	// Inhibitory Neuron
 	LowThresholdSpiking,
 	ThalamoCortical
 } IzhikevichNeuronType;
 
 typedef struct {
-	double a; // Membrane potential recovery after spike 
-	double b; // Sensitivity of the recovery variable 'u'
-	double c; // Membrane potential reset value
-	double d; // Recovery variable reset value
+	double a;		// Membrane potential recovery after spike
+	double b;		// Sensitivity of the recovery variable 'u'
+	double c;		// Membrane potential reset value
+	double d;		// Recovery variable reset value
 } IzhikevichNeuronParams;
 
 typedef struct {
-	double iExt; // External current
-	double iSyn; // Synaptic Current
-	double v; 	 // Voltage
-	double u;	 // Recovery variable
+	double iExt;	// External current
+	double iSyn;	// Synaptic current
+	double u;		// Recovery variable
+	double v;		// Membrane potential
 } IzhikevichNeuronState;
 
 typedef struct {
-    IzhikevichParams *params;
-	IzhikevichState *state;
-	IzhikevichType type;
+	IzhikevichNeuronParams *params;
+	IzhikevichNeuronState  *state;
+	IzhikevichNeuronType   type;
 } IzhikevichNeuron;
 
 #endif // NEURON_STRUCTURE_H
