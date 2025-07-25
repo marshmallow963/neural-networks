@@ -4,15 +4,25 @@
 /* --- Neuron Structure for Hodgking-Huxley Neuron Model --- */
 
 typedef struct {
-    double gNa, gK, gL;
-    double eNa, eK, eL;
-    double mC;
+	double eK;  // Equilibrium potential for potassium current
+	double gK;  // Conductancy for potassium current
+	double eNa; // Equilibrium potential for sodium current
+    double gNa; // Conductancy for sodium current
+	double ek;  // Equilibrium potential for leak current
+	double gL;  // Conductancy for leak current
+    double mC;  // Membrane capacitancy
 } HodgkingHuxleyNeuronParams;
 
 typedef struct {
-	double mGate, hGate, nGate;
-	double v, iExt, iSyn;
-  	double iNa, iK, iL;
+	double mGate; // Sodium activation
+	double hGate; // Sodium inactivation
+	double nGate; // Potassium activation
+  	double iNa;	  // Sodium current
+	double iK;    // Potassium current
+	double iL;	  // Leak current
+	double iExt;  // External current
+	double iSyn;  // synaptic current
+	double v; 	  // Voltage 
 } HodgkingHuxleyNeuronState;
 
 typedef struct {
@@ -33,19 +43,21 @@ typedef enum {
 } IzhikevichNeuronType;
 
 typedef struct {
-	double a;
-	double b
-	double c; 
-	double d;
+	double a; // Membrane potential recovery after spike 
+	double b; // Sensitivity of the recovery variable 'u'
+	double c; // Membrane potential reset value
+	double d; // Recovery variable reset value
 } IzhikevichNeuronParams;
 
 typedef struct {
-	double iExt, iSyn;
-	double v, u;
+	double iExt; // External current
+	double iSyn; // Synaptic Current
+	double v; 	 // Voltage
+	double u;	 // Recovery variable
 } IzhikevichNeuronState;
 
 typedef struct {
-	IzhikevichParams *params;
+    IzhikevichParams *params;
 	IzhikevichState *state;
 	IzhikevichType type;
 } IzhikevichNeuron;
