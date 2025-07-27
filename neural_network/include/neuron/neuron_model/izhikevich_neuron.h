@@ -1,5 +1,5 @@
-#ifndef IZHIKEVICH_H
-#define IZHIKEVICH_H
+#ifndef IZHIKEVICH_NEURON_H
+#define IZHIKEVICH_NEURON_H
 
 #define "neuron_structure/izhikevich_neuron_structure.h"
 
@@ -15,4 +15,4 @@ void GetIzhikevichNeuronVoltage(const IzhikevichNeuron *neuron, double *voltage)
 
 void DestroyNeuron(IzhikevichNeuron *neuron);
 
-#endif // IZHIKEVICH_H
+#endif // IZHIKEVICH_NEURON_H
