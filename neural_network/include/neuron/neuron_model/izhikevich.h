@@ -1,7 +1,7 @@
 #ifndef IZHIKEVICH_H
 #define IZHIKEVICH_H
 
-#define "neuron_Structure/izhikevich_neuron_structure.h"
+#define "neuron_structure/izhikevich_neuron_structure.h"
 
 void InitIzhikevichNeuronParams(IzhikevichNeuronParams *params, IzhikevichNeuronType type);
 void InitIzhikevichNeuronState(const IzhikevichNeuronParams *params, IzhikevichNeuronState *state, IzhikevichNeuronType type);
