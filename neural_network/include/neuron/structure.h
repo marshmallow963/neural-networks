@@ -11,13 +11,10 @@ typedef enum {
 } NeuronType;
 
 typedef struct {
-    void (*Create)(void *neuron, int id);
+    void (*Create)(NeuronType type, void *neuron, int id);
     void (*Update)(void *neuron, double iExt, double iSyn, double dt);
     void (*Get)(const void *neuron, double *voltage);
     void (*Destroy)(void *neuron);
-
-    int neuronID;
-    NeuronType type;
 } Neuron;
 
 #endif // STRUCTURE_H
