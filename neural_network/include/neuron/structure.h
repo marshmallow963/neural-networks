@@ -1,5 +1,5 @@
-#ifndef STRUCTURE_H
-#define STRUCTURE_H
+#ifndef NEURON_INTERFACE_H
+#define NEURON_INTERFACE_H
 
 typedef enum {
     Izhikevich_IntrinsicallyBursting,
@@ -11,10 +11,10 @@ typedef enum {
 } NeuronType;
 
 typedef struct {
-    void (*Create)(NeuronType type, void *neuron, int id);
-    void (*Update)(void *neuron, double iExt, double iSyn, double dt);
-    void (*Get)(const void *neuron, double *voltage);
-    void (*Destroy)(void *neuron);
+    void* (*Create)(NeuronType type);
+    void (*Update)(void *modelData, double current, double dt);
+    void (*Get)(const void *modeldata, double *voltage);
+    void (*Destroy)(void *modeldata);
 } Neuron;
 
-#endif // STRUCTURE_H
+#endif // NEURON_INTERFACE_H
