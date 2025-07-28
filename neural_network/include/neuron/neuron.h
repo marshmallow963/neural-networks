@@ -4,7 +4,7 @@
 #include "neuron_model/hodgking_huxley_neuron.h"
 #include "neuron_model/izhikevich_neuron.h"
 
-#include "neuron_generic.h"
+#include "generic_neuron.h"
 
 void CreateNeuron(NeuronType type, NeuronInterface *neuron, int id);
 void UpdateNeuron(Neuron *neuronInterface, double currentTotal, double dt);
